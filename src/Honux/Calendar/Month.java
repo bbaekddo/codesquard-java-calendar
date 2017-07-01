@@ -6,14 +6,10 @@ public class Month {
 
 	public static void main(String[] args) {
 
-        int a;
-        String s1;
-		
 		System.out.println("달을 입력하시오.");
 		Scanner month = new Scanner(System.in);
 		
-		s1 = month.next();
-		a = Integer.parseInt(s1);
+		int a = month.nextInt();
 		
 		if( a % 2 == 0 ){
 		    
