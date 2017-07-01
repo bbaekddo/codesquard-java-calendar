@@ -17,15 +17,6 @@ public class Calendar {
 		System.out.println(" 29  30  31");
 	}
 
-/*	public int whatTime() {
-
-		System.out.println("반복 횟수를 입력하시오.");
-		Scanner whatTime = new Scanner(System.in);
-
-		int a = whatTime.nextInt();
-		return a;
-	}
-*/
 	public int getDaysOfMonth(int month) {
 
 		return maxOfDays[month - 1];
@@ -34,21 +25,32 @@ public class Calendar {
 	public static void main(String[] args) {
 
 		Calendar cal = new Calendar();
+		String prompt = "cal => ";
 
-		//cal.whatTime();
+		/*
+		 * System.out.println("반복 횟수를 입력하시오."); Scanner whatTime = new
+		 * Scanner(System.in); int a = whatTime.nextInt();
+		 */
+        int a = 0;
+		while (true) {
 
-		System.out.println("반복 횟수를 입력하시오.");
-		Scanner whatTime = new Scanner(System.in);
-		int a = whatTime.nextInt();
-		
-		System.out.println("달을 입력하시오.");
-		for(int i = 0; i < a; i++) {
-
-			Scanner whatMonth = new Scanner(System.in);
-			int bi = whatMonth.nextInt();
-			System.out.printf("%d월은 %d월까지 있습니다.\n", bi, cal.getDaysOfMonth(bi));
+			System.out.println("달을 입력하시오.");
+			System.out.print(prompt);
+			Scanner month = new Scanner(System.in);
+			a = month.nextInt();
+			
+			if( a == -1){
+				break;
+			}
+			else if( a <= 0 | a > 12){
+				System.out.println("입력값이 잘못되었습니다. 다시하세요.\n");
+				continue;
+			}
+			
+			System.out.printf("%d월은 %d월까지 있습니다.\n", a, cal.getDaysOfMonth(a));
 		}
 
+		System.out.println("Have a nice day!");
 	}
-    
+
 }
